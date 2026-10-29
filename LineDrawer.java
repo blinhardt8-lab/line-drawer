@@ -48,6 +48,8 @@ int max = 0;
       System.out.print("Select a value for y2 (0-" + max +"): ");
       y2 = input.nextInt(); if (y2 > max || y2 < 0) { y2 = 15; System.out.println("Out of bounds. Value set to 15."); }
    
+      slope = (double)(y2 - y1)/(double)(x2 - x1);
+   
       for (int i = 0; i < canvasLength; i++) {
          for (int j = 0; j < canvasLength; j++) {
             int specialTile = 0; // Does anything besides the line need to be drawn at our current position?
@@ -74,15 +76,13 @@ int max = 0;
    }
    
    public void drawTile(int x, int y, int special) {
-      slope = (double)(y2 - y1)/(double)(x2 - x1);
-   
       int realY = Math.abs(y - max);
       sx = x - x1;
       sy = y1 + (slope * sx);
       
       if (Math.abs(realY - sy) <= 0.50 && sx >= 0 && sx <= x2) {
          System.out.print("$$");
-      } else if (special == 1) { // Special tiles will be overwritten if the line intersects with them.
+      } else if (special == 1) {
          System.out.print("| ");
       } else if (special == 2) {
          System.out.print("__");
