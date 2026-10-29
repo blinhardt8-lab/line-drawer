@@ -1,5 +1,5 @@
 # Line Drawer
-2026 Java Project by Brett Linhardt
+2026 Java Project by Brett Linhardt  
 A lightweight, pure-console line drawer, partially inspired by the Bresenham Line Function. Input two points, and the program calculates the line between them!
 
 ## Key Features
